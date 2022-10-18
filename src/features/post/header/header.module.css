@@ -1,0 +1,36 @@
+.nav{
+   background-color: rgb(15, 35, 61);
+   width: 100vw;
+   height: 90px;
+   /* position: fixed; */
+   margin: 0;
+   margin-bottom: 64px;
+   padding: 0;
+}
+.container{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #fff;
+    height: 90px;
+   
+}
+.logo{
+  cursor: pointer;
+}
+.links{
+
+}
+
+ul{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #fff;
+}
