@@ -27,22 +27,21 @@ const SinglePostPage = () => {
 
   return (
     <div className = {style.container}>
-  <div className = {styles.inner_container}>
-  <div className= {styles.posts}>
-  <div className={ styles.post_text}>
-    <h1>{post.title}</h1>                
-     <p className= {styles.font}>{post.content}</p>
-      <div className={styles.icon}>
-         <FaThumbsUp className={styles.like} />  
-          <p>0</p>
-          <Link to = {`../../post/edit/${post.id}`}>Edit</Link>
-          <p className={styles.delete} onClick = {handleDelete}>Delete</p>
-        </div>
-    </div>
-  </div>
-        
-  </div> 
-</div>
+      <div className = {styles.inner_container}>
+        <div className= {styles.posts}>
+         <div className={ styles.post_text}>
+             <h1>{post.title}</h1>                
+               <p className= {styles.font}>{post.content}</p>
+                 <div className={styles.icon}>
+                  <FaThumbsUp className={styles.like} />  
+                  <p>0</p>
+                  <Link to = {`../../post/edit/${post.id}`}>Edit</Link>
+                  <p className={styles.delete} onClick = {handleDelete}>Delete</p>
+                </div>
+            </div>
+         </div>   
+      </div> 
+   </div>
 
   )
 }

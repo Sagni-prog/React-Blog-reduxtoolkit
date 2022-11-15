@@ -2,11 +2,11 @@ import React,{useState} from 'react';
 import styles from './input.module.css';
 import style from './post.module.css';
 import { useDispatch  } from 'react-redux';
-import { addPost } from './postSlice';
 import setId from '../../helper/setId';
 import { useSelector } from 'react-redux';
 import { selectAllPosts } from './postSlice';
 import { addNewPost } from './postSlice';
+import Header from './header/Header';
 
 const PostInput = () => {
   
@@ -14,7 +14,6 @@ const PostInput = () => {
   const posts = useSelector(selectAllPosts);
   const [title,setTitle] = useState('');
   const [content,setContent] = useState('');
-  // const [canSave,setCanSave] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -36,9 +35,6 @@ const PostInput = () => {
   return (
     <div className = {style.container}>
     <div className={styles.inner_container}>
-      <div>
-          <h1 className={styles.color}>Post Form</h1>
-      </div>
       <div className={styles.input_field}>
           <form onSubmit={ handleSubmit } className={styles.form}>
               <div className={styles.field}>

@@ -6,7 +6,7 @@ const Post = () => {
   return (
     <div className = {styles.container}>
         {/* <PostInput /> */}
-       {/* <PostList /> */}
+        {/* <PostList /> */}
        
     </div>
   )

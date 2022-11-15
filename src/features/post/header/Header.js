@@ -6,6 +6,7 @@ const Header = () => {
   return (
     <div className={styles.nav}>
          <div className={styles.container}>
+           <div className={styles.content}>
              <div className={styles.logo}>
                   <Link to= '/' >Blog</Link>
              </div>
@@ -15,6 +16,7 @@ const Header = () => {
                      <Link to='/' >Home</Link>
                      <Link to = 'addPost'>AddPost</Link>
                  </ul>
+             </div>
              </div>
          </div>
     </div>

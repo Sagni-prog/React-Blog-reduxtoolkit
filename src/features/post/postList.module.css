@@ -59,7 +59,9 @@ span{
 
 .like{
     font-size: 24px;
+    margin-left: 45px;
     color: rgb(16, 168, 206);
+    cursor: pointer;
 }
 .icon p{
     color: #fff;

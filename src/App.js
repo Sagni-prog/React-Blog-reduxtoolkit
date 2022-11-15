@@ -10,7 +10,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  useNavigate,
 } from 'react-router-dom'
 
 function App() {
@@ -19,11 +18,12 @@ function App() {
        <Router>
         <Header />
           <Routes>
+            <Route index element = {<PostList />} />
             <Route path = '/' element = {<PostList />} />
               <Route path = 'addPost' element = {<PostInput />} />
+
                 <Route path = '/post'>
                     <Route path = ":postId" element = {<SinglePostPage />} />
-
                     <Route path = "edit/:postId" element = {<EditPost />} />
                 </Route>
           </Routes>

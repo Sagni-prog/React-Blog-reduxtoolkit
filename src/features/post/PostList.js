@@ -6,7 +6,8 @@ import {
       selectAllPosts,
       getPostStatus,
       getPostError,
-      fetchPosts 
+      fetchPosts,
+      likePost 
   } from './postSlice';
   import {FaThumbsUp} from 'react-icons/fa'
 import { Link } from 'react-router-dom';
@@ -26,15 +27,19 @@ const PostList = () => {
 
     useEffect(() => {
           if(postStatus === 'idle'){
-            dispatch(fetchPosts())          
+            dispatch(fetchPosts())  
+                  
           }  
     },[postStatus,dispatch])
 
     const handleReadMore = (id) => {
           setReadMore(!readMore)
           setReducedId(id)
-          console.log(readMore)
+          console.log(posts) 
     }
+   const handleLike = (post) => {
+      dispatch(likePost(post))
+   }
 
     let RenderedPost;
     if(postStatus === 'loading'){
@@ -55,13 +60,7 @@ const PostList = () => {
                               Read more
                               </span>
                               </p>
-                              <div className={styles.icon}>
-                                       <FaThumbsUp className={styles.like} />  
-                                       <p>0</p>
-                                     <Link className={styles.link} to = {`post/${post.id}`}>View Post</Link>
-                                     </div>
-
-                              </div>  
+                             </div>  
                              ) : (
                               <div className={ styles.post_text}>
                               <h1>{post.title}</h1>
@@ -70,18 +69,45 @@ const PostList = () => {
                                     <p className= {styles.font}>{post.content}</p>
                                     <span onClick={() => handleReadMore(post.id)}>Read less</span>
 
-                                     <div className={styles.icon}>
-                                       <FaThumbsUp className={styles.like} />  
-                                       <p>0</p>
-                                     </div>
-                                   
                                 </>
                                  
                               }
                           </div> 
                              )
                        }
-                    </div>
+                       {
+                          post.likes.length ?
+                         post.likes.map((like,index) => (
+                          
+                          <div key={index} className={styles.icon}>       
+                          <FaThumbsUp className={styles.like} onClick={ () => handleLike(post) } />  
+                                 <p>
+                                   {like.likes}
+                              </p>
+                         </div>
+                        
+                         )):
+ 
+                          <div className={styles.icon}>       
+                          <FaThumbsUp className={styles.like} onClick={ () => handleLike(post) } />  
+                                 <p>
+                                  0
+                              </p>
+                         </div>
+                        
+                      
+                       }
+                        {/* <div className={styles.icon}>       
+                             <FaThumbsUp className={styles.like} onClick={ () => handleLike(post.id) } />  
+                                    <p>
+                                      {
+                                       post.likes.length ? 
+                                       post.likes.map((like) => like.likes):
+                                         0
+                                      }
+                                 </p>
+                            </div> */}
+                        </div>
               )
             })
         }
@@ -93,7 +119,6 @@ const PostList = () => {
     <div className = {style.container}>
         <div className = {styles.inner_container}>
                { RenderedPost} 
-              
         </div> 
     </div>
     )

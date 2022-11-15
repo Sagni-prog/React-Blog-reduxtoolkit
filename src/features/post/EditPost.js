@@ -38,7 +38,7 @@ const EditPost = () => {
     <div className = {style.container}>
     <div className={styles.inner_container}>
       <div>
-          <h1 className={styles.color}>Post Form</h1>
+          <h1 className={styles.color}>Edit Post</h1>
       </div>
       <div className={styles.input_field}>
           <form onSubmit={ handleSubmit } className={styles.form}>
